@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+
+    <TextView
+        android:id="@+id/titlepage"
+        android:layout_width="309dp"
+        android:layout_height="168dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="200dp"
+        android:text="Тренировочное приложение  для дипломной работы"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/subtitlepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlepage"
+        android:layout_marginTop="42dp"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:text="Продолжайте тренироваться \n для получения максимального результата"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:fontFamily="sans-serif" />
+
+    <Button
+        android:id="@+id/BtnGoToUpraz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subtitlepage"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="24dp"
+        android:text="Начать"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</RelativeLayout>
