@@ -15,10 +15,10 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/plechi"
-            android:scaleType="fitXY"
-            android:alpha="0.8" />
+            android:layout_height="200dp"
+            android:alpha="0.8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/plechi" />
 
         <TextView
             android:id="@+id/leftArrow"
@@ -56,5 +56,17 @@
             android:clipToPadding="false"
             android:padding="8dp" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <Button
+        android:id="@+id/StartProgramm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="-70dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="25dp"
+        android:text="Начать тренировку"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>

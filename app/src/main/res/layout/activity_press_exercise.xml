@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SecondExercise"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/leftArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="-40dp"
+            android:layout_marginStart="0dp"
+            android:text="&#8592;"
+            android:textColor="@color/black"
+            android:textSize="70sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/pres">
+
+        </ImageView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Упражнения для пресса"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+
+        <ImageView
+            android:id="@+id/question"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:src="@drawable/question"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="300dp"/>
+
+        <TextView
+            android:id="@+id/Reps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:text="10 раз"
+            android:layout_marginStart="300dp"
+            android:layout_marginEnd="50dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/FinishSecondExercise"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/Reps"
+            android:text="Начать"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

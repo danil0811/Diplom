@@ -2,6 +2,8 @@ package com.example.diplom;
 
 import android.os.Bundle;
 
+import androidx.activity.EdgeToEdge;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -10,7 +12,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
+public class Youtube extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     private static final String YOUTUBE_API_KEY = "AIzaSyA2L_Jr74eK7oJfCigeJXWKS5Gj9Sq3--Y";
     private String videoUrl;
@@ -53,3 +55,4 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
         youTubePlayerView.initialize(YOUTUBE_API_KEY, this);
     }
 }
+

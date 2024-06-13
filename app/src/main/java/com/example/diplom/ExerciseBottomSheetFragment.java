@@ -61,6 +61,7 @@ public class ExerciseBottomSheetFragment extends BottomSheetDialogFragment {
                     String reps = documentSnapshot.getString("reps");
                     String instructions = documentSnapshot.getString("instructions");
                     String videoUrl = documentSnapshot.getString("videoUrl");
+                    String calories = documentSnapshot.getString("calories");
 
                     tvExerciseName.setText(name);
                     tvExerciseReps.setText("Reps: " + reps);

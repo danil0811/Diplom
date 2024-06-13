@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -13,6 +12,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diplom"
         tools:targetApi="31">
+        <activity
+            android:name=".Calendar"
+            android:exported="false" />
+        <activity
+            android:name=".Youtube"
+            android:exported="false" />
+        <activity
+            android:name=".PushUp"
+            android:exported="false" />
+        <activity
+            android:name=".PushupWithEmphasis"
+            android:exported="false" />
+        <activity
+            android:name=".RestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JumpingWithArmsAndLegs"
+            android:exported="false" />
+        <activity
+            android:name=".PushupWithAWideFocus"
+            android:exported="false" />
+        <activity
+            android:name=".PressExercise"
+            android:exported="false" />
+        <activity
+            android:name=".StretchingTheRhomboidMusclesExercise"
+            android:exported="false" />
+        <activity
+            android:name=".activity_exercise_detail"
+            android:exported="false" />
         <activity
             android:name=".bottom_sheet_layout"
             android:exported="false" />

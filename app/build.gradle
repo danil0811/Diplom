@@ -34,6 +34,7 @@ dependencies {
     //noinspection UseTomlInstead
     implementation 'com.google.firebase:firebase-analytics'
 
+    implementation libs.material.v140
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation libs.material.v130
     implementation libs.appcompat

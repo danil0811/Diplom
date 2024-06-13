@@ -1,21 +1,23 @@
 package com.example.diplom.Models;
+import java.io.Serializable;
 
-public class Exercise {
+public class Exercise implements Serializable {
     private String name;
     private String description;
     private String demonstration;
     private String setsReps;
-    private int caloriesPerRep;
+    private int calories;
 
     public Exercise() {
         // Пустой конструктор требуется для Firebase
     }
 
-    public Exercise(String name, String description, String demonstration, String setsReps) {
+    public Exercise(String name, String description, String demonstration, String setsReps, int calories) {
         this.name = name;
         this.description = description;
         this.demonstration = demonstration;
         this.setsReps = setsReps;
+        this.calories = calories;
     }
 
     // Геттеры и сеттеры для полей класса
@@ -51,11 +53,11 @@ public class Exercise {
         this.setsReps = setsReps;
     }
 
-    public int getCaloriesPerRep() {
-        return caloriesPerRep;
+    public int getCalories() {
+        return calories;
     }
 
-    public void setCaloriesPerRep(int caloriesPerRep) {
-        this.caloriesPerRep = caloriesPerRep;
+    public void setCalories(int calories) {
+        this.calories = calories;
     }
 }
