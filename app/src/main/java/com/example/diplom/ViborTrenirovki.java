@@ -17,6 +17,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class ViborTrenirovki extends AppCompatActivity {
 
     private static final String PREFS_NAME = "WorkoutPrefs";
@@ -62,9 +66,13 @@ public class ViborTrenirovki extends AppCompatActivity {
         long workoutDurationMinutes = sharedPreferences.getLong(KEY_WORKOUT_DURATION, 0);
         int totalCaloriesBurned = sharedPreferences.getInt(KEY_CALORIES_BURNED, 0);
 
-        countTrenTextView.setText("Потраченное время на тренировке:"+completedWorkoutsCount);
-        countMinTextView.setText("Потраченное время на тренировке:" + workoutDurationMinutes);
+        countTrenTextView.setText("Количество тренировок: " + completedWorkoutsCount);
+        countMinTextView.setText("Затраченное время на тренировке: " + workoutDurationMinutes);
         countCcalTextView.setText("Сожженные калории: " + totalCaloriesBurned);
+
+        countCcalTextView.setOnClickListener(v -> openCalendarActivity());
+        countTrenTextView.setOnClickListener(v -> openCalendarActivity());
+        countMinTextView.setOnClickListener(v -> openCalendarActivity());
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -95,6 +103,7 @@ public class ViborTrenirovki extends AppCompatActivity {
         allBodyLayout.setOnClickListener(allBodyClickListener);
         btnAllBody.setOnClickListener(allBodyClickListener);
 
+        // Добавьте действия для других кнопок и лэйаутов
 //        View.OnClickListener lowerBodyClickListener = v -> openActivity(Lower.class);
 //        lowerBodyLayout.setOnClickListener(lowerBodyClickListener);
 //        btnLowerBody.setOnClickListener(lowerBodyClickListener);
@@ -103,7 +112,7 @@ public class ViborTrenirovki extends AppCompatActivity {
 //        programmaPress.setOnClickListener(pressClickListener);
 //        btnPress.setOnClickListener(pressClickListener);
 //
-//        View.OnClickListener chestClickListener = v -> openActivity();
+//        View.OnClickListener chestClickListener = v -> openActivity(ChestActivity.class);
 //        programmaChest.setOnClickListener(chestClickListener);
 //        btnChest.setOnClickListener(chestClickListener);
 //
@@ -112,21 +121,36 @@ public class ViborTrenirovki extends AppCompatActivity {
 //        btnHand.setOnClickListener(handClickListener);
     }
 
+    private void openCalendarActivity() {
+        Intent intent = new Intent(this, Calendar.class);
+        startActivity(intent);
+    }
+
     private void updateWorkoutData(long workoutDurationMinutes, int caloriesBurned) {
-        float completedWorkoutsCount = sharedPreferences.getInt(KEY_COMPLETED_WORKOUTS, 0) + 1;
+        int completedWorkoutsCount = sharedPreferences.getInt(KEY_COMPLETED_WORKOUTS, 0) + 1;
         long totalWorkoutDuration = sharedPreferences.getLong(KEY_WORKOUT_DURATION, 0) + workoutDurationMinutes;
         int totalCaloriesBurned = sharedPreferences.getInt(KEY_CALORIES_BURNED, 0) + caloriesBurned;
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(KEY_COMPLETED_WORKOUTS, (int) completedWorkoutsCount);
+        editor.putInt(KEY_COMPLETED_WORKOUTS, completedWorkoutsCount);
         editor.putLong(KEY_WORKOUT_DURATION, totalWorkoutDuration);
         editor.putInt(KEY_CALORIES_BURNED, totalCaloriesBurned);
         editor.apply();
 
-        // Обновление TextView
-        countTrenTextView.setText("Потраченное время на тренировке:" + completedWorkoutsCount);
-        countMinTextView.setText("Потраченное время на тренировке:" + workoutDurationMinutes);
+        // Обновите TextView
+        countTrenTextView.setText("Количество тренировок: " + completedWorkoutsCount);
+        countMinTextView.setText("Затраченное время на тренировке: " + totalWorkoutDuration);
         countCcalTextView.setText("Сожженные калории: " + totalCaloriesBurned);
+
+        // Сохраните дату тренировки
+        saveWorkoutDate();
+    }
+
+    private void saveWorkoutDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String date = sdf.format(new Date());
+
+        Calendar.addWorkoutDate(sharedPreferences, date);
     }
 
     private void openActivity(Class<?> activityClass) {
@@ -134,4 +158,3 @@ public class ViborTrenirovki extends AppCompatActivity {
         startActivity(intent);
     }
 }
-
